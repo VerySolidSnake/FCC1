@@ -1,0 +1,47 @@
+body{
+    background-color: #428bca;
+    font-size: 20px;
+}
+body,#new-quote{
+    -webkit-transition: background-color 1s linear;
+    -ms-transition: background-color 1s linear;
+    transition: background-color 1s linear;
+}
+#quote-box{
+    background-color:#fefefe;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: justify;
+    width: 540px;
+    padding: 25px;
+    transform:translate(-50%,-50%);
+    border-radius: 4px;
+}
+#text{
+    margin-bottom:40px;
+}
+#text,#author{
+    transition: opacity 1s linear;
+}
+#tweet-quote,#qt{
+    color:#428bca;
+    -webkit-transition: color 1s linear;
+    -ms-transition: color 1s linear;
+    transition: color 1s linear;
+}
+#author{
+    text-align: right;
+    margin-bottom:20px;
+}
+#new-quote{
+    float: right;
+    background-color:#428bca;
+}
+.btn:focus,.btn:active{
+    outline: none !important;
+    box-shadow: none;
+}
+h1 >i{
+    margin-right: 10px;
+}
