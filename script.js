@@ -1,28 +1,43 @@
-const autorQuote={
-    Mahatma_Gandhi:'Live as if you were to die tomorrow. Learn as if you were to live forever.',
-    Friedrich_Nietzsche:"That which does not kill us makes us stronger.",
-    Virginia_Satir:"We must not allow other people’s limited perceptions to define us.",
-    Oscar_Wilde:"Be yourself; everyone else is already taken.",
-    Napoleon_Hill:"If you cannot do great things, do small things in a great way."
-};
-const autorQuoteKeys=Object.keys(autorQuote);
-let random=Math.round(Math.random()*(autorQuoteKeys.length-1));
-const newText=autorQuote[autorQuoteKeys[random]];
-const changeQuote=()=>{
-    document.getElementById('text').innerHTML=autorQuote[autorQuoteKeys[random]];
-    document.getElementById('author').innerHTML="-"+(autorQuoteKeys[random].split("_").join(" "));
+const quotes={
+    James_Baldwin:"People are trapped in history and history is trapped in them.",
+    David_McCullough:"History is who we are and why we are the way we are.",
+    James_Baldwin:"I am what time, circumstance, history, have made of me, certainly, but I am also, much more than that. So are we all.",
+    Mahatama_Gandhi:"A small body of determined spirits fired by an unquenchable faith in their mission can alter the course of history.",
+    Martin_Luther:"Blood alone moves the wheels of history.",
+    Marcus_Garvey:"A people without the knowledge of their past history, origin and culture is like a tree without roots.",
+    David_Miliband:"I do not speak Hebrew, but I understand that it has no word for ‘history’. The closest word for it is memory.",
+    Percy_Bysshe_Shelley:"Fear not for the future, weep not for the past.",
+    Kurt_Vonnegut:"History is merely a list of surprises. It can only prepare us to be surprised yet again.",
+    Saul_Alinsky:"History is a relay of revolutions."
 }
-window.onload=changeQuote();
-const nextQuote=()=>{
-    const c1=Math.round(Math.random()*255);
-    const c2=Math.round(Math.random()*255);
-    const c3=Math.round(Math.random()*255);
-    const globalColor="rgb("+c1+","+c2+","+c3+")";
-    console.log(c1,c2,c3)
-    document.body.style.backgroundColor=globalColor;
-    document.getElementById('new-quote').style.backgroundColor=globalColor;
-    document.getElementById('tweet-quote').style.color=globalColor;
-    document.getElementById('qt').style.color=globalColor;
-    random=Math.round(Math.random()*(autorQuoteKeys.length-1));
-    setTimeout(changeQuote(),2000);
+const authors=Object.keys(quotes);
+console.log(authors);
+let random=Math.round(Math.random()*(authors.length-1));
+console.log(random);
+let buttonDisabled=true;
+$("document").ready(()=>{
+$("#text").html(quotes[authors[random]]);
+$("#author").html("-"+authors[random].split("_").join(" "));
+$("#next-quote").click(()=>{
+    if(!buttonDisabled){
+        return;
+    }
+    else{
+    buttonDisabled=false;
+    $("body").css("background-color","rgb("+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+")");
+    let nRandom=Math.round(Math.random()*(authors.length-1));
+    while(nRandom===random){
+        nRandom=Math.round(Math.random()*(authors.length-1));
+    }
+    random=nRandom;
+    console.log(nRandom)
+    $("#text,#author").css("opacity","0");
+    setTimeout(()=>{
+        $("#text").html(quotes[authors[random]]);
+        $("#author").html("-"+authors[random].split("_").join(" "));
+        $("#text,#author").css("opacity","1");
+    },800);
+    buttonDisabled=true;
 }
+});
+});
