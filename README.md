@@ -1,8 +1,8 @@
 # KnownQuote - This is an application that randomly shows quotes of known people.
-<h2>Languages used in this app:</h2>
+<h2>Languages used:</h2>
 <li>HTML</li>
 <li>CSS</li>
 <li>JS</li>
 
-<h2>Frameworks:</h2>
+<h2>Frameworks used:</h2>
 <li>Bootstrap</li>
