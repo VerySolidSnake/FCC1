@@ -6,3 +6,6 @@
 
 <h2>Frameworks used:</h2>
 <li>Bootstrap</li>
+
+<h2>Others:</h2>
+<li>None</li>
